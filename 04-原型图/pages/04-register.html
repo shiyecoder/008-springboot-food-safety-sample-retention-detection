@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>留样登记 · 留样员工作台</title>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .two-col{display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
+  .upload-box{border:1px dashed #D9C8C0;border-radius:6px;background:#FCF9F7;height:96px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:var(--c-text-3);font-size:12px;cursor:pointer}
+  .upload-box:hover{border-color:var(--c-accent);background:#FBF6F7}
+  .shots{display:flex;gap:10px;margin-top:10px}
+  .shot{width:104px;position:relative}
+  .shot img{width:104px;height:78px;object-fit:cover;border-radius:4px;border:1px solid var(--c-line);display:block}
+  .shot em{position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#fff;border:1px solid var(--c-line);color:var(--c-danger);font-style:normal;font-size:11px;display:flex;align-items:center;justify-content:center}
+  .shot span{font-size:11px;color:var(--c-text-3);display:block;text-align:center;margin-top:3px}
+  .check-list{display:flex;flex-direction:column;gap:9px;font-size:12.5px}
+  .check-list .c{display:flex;gap:7px;align-items:flex-start}
+  .check-list .c i{width:15px;height:15px;border-radius:50%;flex:0 0 15px;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:10px;color:#fff;margin-top:1px}
+  .check-list .ok i{background:var(--c-success)}
+  .check-list .bad i{background:var(--c-danger)}
+  .check-list .wait i{background:var(--c-warn)}
+</style>
+</head>
+<body>
+<header class="portal-top">
+  <span class="brand"><i></i>食品安全留样 · 留样员工作台</span>
+  <nav>
+    <a href="03-tasks.html">我的任务</a>
+    <a href="04-register.html" class="on">留样登记</a>
+    <a href="06-cabinet.html">柜位状态</a>
+    <a href="09-expiry.html">到期处置</a>
+  </nav>
+  <span class="me"><svg width="17" height="17"><use href="../icons.svg#i-bell"/></svg><span class="av" style="background:#2F6F6A">李</span>李秀兰 ▾</span>
+</header>
+
+<div class="portal-body" style="max-width:1180px">
+  <div class="page-h">
+    <div>
+      <h1>留样登记</h1>
+      <p>任务 LY20261031-0007 · 红烧狮子头 · 一食堂热菜档 · 截止 10-31 12:40</p>
+    </div>
+    <div class="acts">
+      <button class="btn btn-ghost" onclick="location.href='03-tasks.html'">返回任务</button>
+      <button class="btn btn-ghost">保存草稿</button>
+      <button class="btn btn-primary">提交复核</button>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <!-- 任务摘要 -->
+      <div class="card" style="margin-bottom:16px">
+        <div class="summary" style="margin-bottom:0">
+          <div class="s">留样编号<b class="mono-num">LY20261031-0007</b></div>
+          <div class="s">食品名称<b>红烧狮子头</b></div>
+          <div class="s">餐次 / 批次<b>午餐 / PC-20261031-L01</b></div>
+          <div class="s">当前状态<b><span class="tag pending">待执行</span></b></div>
+          <div class="s">责任人<b>李秀兰</b></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="group-t">一、留样称重</div>
+        <div class="form-row">
+          <label><span class="req">*</span>实际重量</label>
+          <div class="ctrl">
+            <div style="display:flex;align-items:center;gap:8px">
+              <input class="inp" value="132.5" style="max-width:160px">
+              <span class="muted">g</span>
+              <span class="tag ok" style="margin-left:6px">≥ 标准 125 g</span>
+            </div>
+            <div class="hint">保留 1 位小数；低于规则下限 125 g 时禁止提交复核</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label><span class="req">*</span>容器编号</label>
+          <div class="ctrl"><input class="inp" value="BX-A-0312"></div>
+        </div>
+        <div class="form-row">
+          <label><span class="req">*</span>存放仓位</label>
+          <div class="ctrl">
+            <select class="sel" style="width:240px">
+              <option>冷藏柜 A · 3 层 · 02 位（空闲）</option>
+              <option>冷藏柜 A · 3 层 · 03 位（空闲）</option>
+              <option>冷藏柜 B · 1 层 · 01 位（空闲）</option>
+            </select>
+            <div class="hint">已被占用的仓位不会出现在可选列表中；仓位冲突由后端二次校验</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label><span class="req">*</span>当前温度</label>
+          <div class="ctrl">
+            <div style="display:flex;align-items:center;gap:8px">
+              <input class="inp" value="3.2" style="max-width:160px">
+              <span class="muted">℃</span>
+              <span class="tag warn" style="margin-left:6px">接近上限 4 ℃</span>
+            </div>
+            <div class="hint">温度人工录入，不由传感器采集；超出 0–4 ℃ 区间需填写说明</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>留样时间</label>
+          <div class="ctrl"><input class="inp" value="2026-10-31 12:18:00" style="max-width:240px"></div>
+        </div>
+
+        <div class="group-t" style="margin-top:22px">二、现场照片</div>
+        <div class="form-row">
+          <label><span class="req">*</span>留样照片</label>
+          <div class="ctrl">
+            <div class="shots">
+              <div class="shot"><img src="../assets/dish-1.svg" alt=""><em>×</em><span>留样容器.jpg</span></div>
+              <div class="shot"><img src="../assets/dish-3.svg" alt=""><em>×</em><span>秤重读数.jpg</span></div>
+              <div class="upload-box" style="width:104px;height:78px">
+                <svg width="18" height="18"><use href="../icons.svg#i-upload"/></svg>
+                <span style="font-size:11px">上传</span>
+              </div>
+            </div>
+            <div class="hint">至少 1 张，支持 jpg/png，单张 ≤ 10 MB；照片保存到项目 uploads/ 目录，不允许填写外部链接</div>
+          </div>
+        </div>
+
+        <div class="group-t" style="margin-top:22px">三、备注</div>
+        <div class="form-row">
+          <label>备注说明</label>
+          <div class="ctrl"><textarea class="inp" rows="3" style="height:auto;max-width:520px;padding:8px 10px">狮子头为今日新增菜品，出餐温度 68 ℃，已按 125 g 标准分装。</textarea></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧：规则提示与实时校验 -->
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-h"><h3>本次留样规则</h3></div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:12.5px">
+          <div style="display:flex"><span class="muted">最低重量</span><b style="margin-left:auto">125 g</b></div>
+          <div style="display:flex"><span class="muted">存储条件</span><b style="margin-left:auto">0–4 ℃ 冷藏</b></div>
+          <div style="display:flex"><span class="muted">保留时长</span><b style="margin-left:auto">48 小时</b></div>
+          <div style="display:flex"><span class="muted">适用餐次</span><b style="margin-left:auto">早 / 午 / 晚</b></div>
+          <div style="display:flex"><span class="muted">规则版本</span><b style="margin-left:auto">v3（2026-09-01 生效）</b></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-h"><h3>提交前校验</h3></div>
+        <div class="check-list">
+          <div class="c ok"><i>✓</i><span>实际重量 132.5 g ≥ 标准 125 g</span></div>
+          <div class="c ok"><i>✓</i><span>仓位 A-3-02 空闲，无占用冲突</span></div>
+          <div class="c ok"><i>✓</i><span>容器编号 BX-A-0312 未被使用</span></div>
+          <div class="c ok"><i>✓</i><span>现场照片 2 张，均已上传成功</span></div>
+          <div class="c wait"><i>!</i><span>温度 3.2 ℃ 接近上限，复核时会被重点标注</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h3>操作提示</h3></div>
+        <p class="muted" style="font-size:12.5px;line-height:22px">
+          提交后状态变为「待复核」，主管复核通过才进入「保留中」。
+          若被驳回，原记录保留为历史版本，需重新登记一条新的留样记录。
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

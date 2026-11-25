@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>基础数据 · 食品安全留样与检测管理系统</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/shell.js" defer></script>
+</head>
+<body>
+<div class="shell" data-shell="管理员" data-active="/base">
+  <template data-body>
+    <div class="page-h">
+      <div><h1>基础数据</h1><p>食品分类、供应单位、加工档口、冷藏柜与仓位、生产批次</p></div>
+      <div class="acts">
+        <button class="btn btn-ghost"><svg width="14" height="14"><use href="../icons.svg#i-export"/></svg>导出</button>
+        <button class="btn btn-primary"><svg width="14" height="14"><use href="../icons.svg#i-plus"/></svg>新增</button>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:16px">
+      <div class="tabs" style="padding:0 14px">
+        <a class="on">食品分类 <span class="cnt">8</span></a>
+        <a>供应单位 <span class="cnt">6</span></a>
+        <a>加工档口 <span class="cnt">9</span></a>
+        <a>冷藏柜 <span class="cnt">3</span></a>
+        <a>仓位 <span class="cnt">72</span></a>
+        <a>生产批次 <span class="cnt">24</span></a>
+      </div>
+
+      <div class="filters" style="border:0;border-bottom:1px solid var(--c-line);border-radius:0;margin:0">
+        <div class="fi"><label>分类名称</label><input class="inp" placeholder="输入名称"></div>
+        <div class="fi"><label>状态</label><select class="sel" style="min-width:120px"><option>全部</option><option>启用</option><option>停用</option></select></div>
+        <div class="sp"><button class="btn btn-ghost">重置</button><button class="btn btn-primary">查询</button></div>
+      </div>
+
+      <table class="tbl">
+        <thead><tr><th>编码</th><th>分类名称</th><th>适用餐次</th><th class="r">最低重量</th><th>存储条件</th><th class="r">保留时长</th><th>负责人</th><th>更新时间</th><th>状态</th><th>操作</th></tr></thead>
+        <tbody>
+          <tr><td class="id nowrap">C-HOT</td><td>热菜</td><td>早 / 午 / 晚</td><td class="r mono-num">125 g</td><td class="muted">0–4 ℃ 冷藏</td><td class="r mono-num">48 h</td><td>王建国</td><td class="nowrap">2026-09-01 10:12</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">停用</button></div></td></tr>
+          <tr><td class="id nowrap">C-COLD</td><td>凉菜</td><td>午 / 晚</td><td class="r mono-num">125 g</td><td class="muted">0–4 ℃ 冷藏</td><td class="r mono-num">48 h</td><td>王建国</td><td class="nowrap">2026-09-01 10:14</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">停用</button></div></td></tr>
+          <tr><td class="id nowrap">C-PASTRY</td><td>面点</td><td>早 / 午</td><td class="r mono-num">100 g</td><td class="muted">0–4 ℃ 冷藏</td><td class="r mono-num">48 h</td><td>李秀兰</td><td class="nowrap">2026-08-20 15:30</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">停用</button></div></td></tr>
+          <tr><td class="id nowrap">C-SOUP</td><td>汤品</td><td>午 / 晚</td><td class="r mono-num">250 g</td><td class="muted">0–4 ℃ 冷藏</td><td class="r mono-num">48 h</td><td>李秀兰</td><td class="nowrap">2026-08-20 15:32</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">停用</button></div></td></tr>
+          <tr><td class="id nowrap">C-DRINK</td><td>自制饮品</td><td>全天</td><td class="r mono-num">200 g</td><td class="muted">0–4 ℃ 冷藏</td><td class="r mono-num">24 h</td><td>陈志远</td><td class="nowrap">2026-07-11 09:05</td><td><span class="tag plain">停用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">启用</button></div></td></tr>
+          <tr><td class="id nowrap">C-STAPLE</td><td>主食</td><td>早 / 午 / 晚</td><td class="r mono-num">150 g</td><td class="muted">0–4 ℃ 冷藏</td><td class="r mono-num">48 h</td><td>李秀兰</td><td class="nowrap">2026-06-02 11:40</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">停用</button></div></td></tr>
+        </tbody>
+      </table>
+      <div class="pager"><span>共 8 条 · 每页 10 条</span><div class="pgs"><span class="pg on">1</span></div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="card-h"><h3>冷藏柜与仓位</h3><span class="more">管理仓位</span></div>
+        <table class="tbl" style="margin-top:-4px">
+          <thead><tr><th>冷藏柜</th><th>位置</th><th class="r">总仓位</th><th class="r">已占用</th><th>温度区间</th><th>状态</th></tr></thead>
+          <tbody>
+            <tr><td>A 柜</td><td class="muted">一食堂备餐间</td><td class="r mono-num">24</td><td class="r mono-num">18</td><td class="muted">0–4 ℃</td><td><span class="tag ok">正常</span></td></tr>
+            <tr><td>B 柜</td><td class="muted">二食堂备餐间</td><td class="r mono-num">24</td><td class="r mono-num">17</td><td class="muted">0–4 ℃</td><td><span class="tag ok">正常</span></td></tr>
+            <tr><td>C 柜</td><td class="muted">快检室</td><td class="r mono-num">24</td><td class="r mono-num">11</td><td class="muted">0–4 ℃</td><td><span class="tag warn">温度偏高</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>生产批次</h3><span class="more">全部批次</span></div>
+        <table class="tbl" style="margin-top:-4px">
+          <thead><tr><th>批次号</th><th>餐次</th><th>加工时间</th><th>负责人</th><th class="r">菜品数</th><th>状态</th></tr></thead>
+          <tbody>
+            <tr><td class="id nowrap">PC-20261031-L01</td><td>午餐</td><td class="nowrap">10-31 09:30</td><td>张师傅</td><td class="r mono-num">8</td><td><span class="tag doing">进行中</span></td></tr>
+            <tr><td class="id nowrap">PC-20261031-L02</td><td>午餐</td><td class="nowrap">10-31 09:40</td><td>刘师傅</td><td class="r mono-num">6</td><td><span class="tag doing">进行中</span></td></tr>
+            <tr><td class="id nowrap">PC-20261031-B01</td><td>早餐</td><td class="nowrap">10-31 05:40</td><td>赵师傅</td><td class="r mono-num">5</td><td><span class="tag ok">已完结</span></td></tr>
+            <tr><td class="id nowrap">PC-20261030-L01</td><td>午餐</td><td class="nowrap">10-30 09:25</td><td>张师傅</td><td class="r mono-num">8</td><td><span class="tag ok">已完结</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </template>
+</div>
+</body>
+</html>

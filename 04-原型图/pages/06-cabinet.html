@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>留样柜位图 · 食品安全留样与检测管理系统</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/shell.js" defer></script>
+</head>
+<body>
+<div class="shell" data-shell="留样员" data-active="/cabinet">
+  <template data-body>
+    <div class="page-h">
+      <div><h1>留样柜位图</h1><p>冷藏柜 A/B/C 共 72 个仓位 · 已占用 46 · 空闲 26 · 临期 7 · 检测锁定 3</p></div>
+      <div class="acts">
+        <select class="sel" style="min-width:180px"><option>全部冷藏柜</option><option>冷藏柜 A</option><option>冷藏柜 B</option><option>冷藏柜 C</option></select>
+        <button class="btn btn-ghost"><svg width="14" height="14"><use href="../icons.svg#i-scan"/></svg>仓位盘点</button>
+        <button class="btn btn-primary">新增仓位</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-h"><h3>冷藏柜 A · 0–4 ℃</h3><span class="more">共 24 位，占用 18</span></div>
+      <div class="cab-grid">
+        <div class="cab free"><b>A-1-01</b><span>空闲</span></div>
+        <div class="cab used"><b>A-1-02</b><span>清蒸鲈鱼</span><span class="mini">12:05</span></div>
+        <div class="cab used"><b>A-1-03</b><span>香菇滑鸡</span><span class="mini">12:08</span></div>
+        <div class="cab used"><b>A-1-04</b><span>糖醋里脊</span><span class="mini">12:11</span></div>
+        <div class="cab free"><b>A-1-05</b><span>空闲</span></div>
+        <div class="cab free"><b>A-1-06</b><span>空闲</span></div>
+        <div class="cab used"><b>A-1-07</b><span>蒜蓉西兰花</span><span class="mini">12:14</span></div>
+        <div class="cab used"><b>A-1-08</b><span>红烧狮子头</span><span class="mini">12:18</span></div>
+
+        <div class="cab used"><b>A-2-01</b><span>番茄炒蛋</span><span class="mini">12:02</span></div>
+        <div class="cab used"><b>A-2-02</b><span>青椒肉丝</span><span class="mini">12:04</span></div>
+        <div class="cab due"><b>A-2-03</b><span>凉拌黄瓜</span><span class="mini">临期</span></div>
+        <div class="cab used"><b>A-2-04</b><span>糖醋里脊</span><span class="mini">12:11</span></div>
+        <div class="cab used"><b>A-2-05</b><span>土豆炖牛肉</span><span class="mini">12:09</span></div>
+        <div class="cab free"><b>A-2-06</b><span>空闲</span></div>
+        <div class="cab used"><b>A-2-07</b><span>干煸豆角</span><span class="mini">12:16</span></div>
+        <div class="cab used"><b>A-2-08</b><span>清炒时蔬</span><span class="mini">12:20</span></div>
+
+        <div class="cab used"><b>A-3-01</b><span>清蒸鲈鱼</span><span class="mini">15:02</span></div>
+        <div class="cab used"><b>A-3-02</b><span>香菇滑鸡</span><span class="mini">15:06</span></div>
+        <div class="cab free"><b>A-3-03</b><span>空闲</span></div>
+        <div class="cab free"><b>A-3-04</b><span>空闲</span></div>
+        <div class="cab lock"><b>A-3-05</b><span>红烧排骨</span><span class="mini">锁定</span></div>
+        <div class="cab used"><b>A-3-06</b><span>冬瓜丸子汤</span><span class="mini">15:10</span></div>
+        <div class="cab due"><b>A-3-07</b><span>蒜泥白肉</span><span class="mini">临期</span></div>
+        <div class="cab free"><b>A-3-08</b><span>空闲</span></div>
+      </div>
+      <div class="legend">
+        <span><i style="background:#F5F0ED"></i>空闲</span>
+        <span><i style="background:#EAF1F0;border-color:#CFE2DF"></i>占用</span>
+        <span><i style="background:#FBF0DF;border-color:#EED9B4"></i>临期 24h</span>
+        <span><i style="background:#F9E7E8;border-color:#EFC9CD"></i>检测锁定</span>
+      </div>
+    </div>
+
+    <div class="grid3" style="grid-template-columns:1fr 1fr 1.2fr">
+      <div class="card">
+        <div class="card-h"><h3>待销毁（7）</h3><span class="more">去处置</span></div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:12.5px">
+          <div style="display:flex"><span class="mono-num">A-2-03</span><span class="muted" style="margin-left:10px">凉拌黄瓜</span><span style="margin-left:auto" class="tag bad">逾期 1.5 天</span></div>
+          <div style="display:flex"><span class="mono-num">A-3-07</span><span class="muted" style="margin-left:10px">蒜泥白肉</span><span style="margin-left:auto" class="tag warn">今日到期</span></div>
+          <div style="display:flex"><span class="mono-num">B-1-03</span><span class="muted" style="margin-left:10px">凉拌木耳</span><span style="margin-left:auto" class="tag bad">逾期 0.5 天</span></div>
+          <div style="display:flex"><span class="mono-num">C-1-02</span><span class="muted" style="margin-left:10px">紫菜蛋花汤</span><span style="margin-left:auto" class="tag warn">今日到期</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>检测锁定（3）</h3><span class="more">查看事件</span></div>
+        <p class="muted" style="font-size:12.5px;line-height:22px">
+          被不合格事件锁定的样品不允许销毁，事件关闭前仓位保持锁定。
+          当前锁定：红烧排骨（A-3-05）、香菇滑鸡（B-2-04）、鲜肉包子（B-2-01）。
+        </p>
+        <div class="note" style="margin-top:10px">事件 INC20261029-002 未关闭，涉及 2 份留样</div>
+      </div>
+      <div class="card">
+        <div class="card-h"><h3>柜位使用率</h3></div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:12px;margin-top:4px">
+          <div><div style="display:flex;margin-bottom:4px"><span class="muted">冷藏柜 A</span><span style="margin-left:auto" class="mono-num">18 / 24 · 75%</span></div><div style="height:8px;background:#F3EBE7;border-radius:4px"><div style="width:75%;height:8px;background:#5B2533;border-radius:4px"></div></div></div>
+          <div><div style="display:flex;margin-bottom:4px"><span class="muted">冷藏柜 B</span><span style="margin-left:auto" class="mono-num">17 / 24 · 71%</span></div><div style="height:8px;background:#F3EBE7;border-radius:4px"><div style="width:71%;height:8px;background:#2F6F6A;border-radius:4px"></div></div></div>
+          <div><div style="display:flex;margin-bottom:4px"><span class="muted">冷藏柜 C</span><span style="margin-left:auto" class="mono-num">11 / 24 · 46%</span></div><div style="height:8px;background:#F3EBE7;border-radius:4px"><div style="width:46%;height:8px;background:#B0762A;border-radius:4px"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+</body>
+</html>

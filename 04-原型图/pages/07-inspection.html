@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>检测登记 · 食品安全留样与检测管理系统</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/shell.js" defer></script>
+<style>
+  .insp-grid{display:grid;grid-template-columns:1fr 420px;gap:16px;align-items:start}
+  .item-row{display:grid;grid-template-columns:1fr 110px 120px 1fr;gap:8px;align-items:center;padding:8px 0;border-bottom:1px dashed #F0E7E3;font-size:12.5px}
+  .item-row:last-child{border-bottom:0}
+</style>
+</head>
+<body>
+<div class="shell" data-shell="检测员" data-active="/inspection">
+  <template data-body>
+    <div class="page-h">
+      <div><h1>检测登记</h1><p>抽检登记与检测项目录入 · 待本人处理 5 件，今日已录入 8 件</p></div>
+      <div class="acts">
+        <button class="btn btn-ghost">导出</button>
+        <button class="btn btn-primary"><svg width="14" height="14"><use href="../icons.svg#i-plus"/></svg>新增检测</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="fi"><label>检测编号 / 留样编号</label><input class="inp" placeholder="输入编号"></div>
+      <div class="fi"><label>检测类型</label><select class="sel"><option>全部</option><option>感官</option><option>微生物</option><option>添加剂</option><option>综合</option></select></div>
+      <div class="fi"><label>检测结果</label><select class="sel"><option>全部</option><option>合格</option><option>不合格</option><option>待复检</option></select></div>
+      <div class="fi"><label>检测时间</label><input class="inp" value="2026-10-01 ~ 2026-10-31" style="min-width:200px"></div>
+      <div class="sp"><button class="btn btn-ghost">重置</button><button class="btn btn-primary">查询</button></div>
+    </div>
+
+    <div class="insp-grid">
+      <div class="tbl-wrap">
+        <div class="tabs" style="padding:0 14px">
+          <a class="on">全部 <span class="cnt">51</span></a>
+          <a>待办 <span class="cnt">5</span></a>
+          <a>处理中 <span class="cnt">3</span></a>
+          <a>已完成 <span class="cnt">41</span></a>
+          <a>异常 <span class="cnt">2</span></a>
+        </div>
+        <table class="tbl">
+          <thead><tr><th>检测编号</th><th>留样 / 食品</th><th>检测类型</th><th>项目数</th><th>结果</th><th>检测时间</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr style="background:#FCF9F7">
+              <td class="id nowrap">JC20261031-0004</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-2.svg" alt=""><div><b>清蒸鲈鱼</b><span>LY20261031-0001</span></div></div></td>
+              <td>微生物</td><td class="mono-num">3</td><td><span class="tag ok">合格</span></td>
+              <td class="nowrap">10-31 14:20</td><td><span class="tag warn">待复核</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">复核</button></div></td>
+            </tr>
+            <tr>
+              <td class="id nowrap">JC20261031-0003</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-5.svg" alt=""><div><b>凉拌木耳</b><span>LY20261031-0006</span></div></div></td>
+              <td>微生物</td><td class="mono-num">3</td><td><span class="tag bad">不合格</span></td>
+              <td class="nowrap">10-31 13:40</td><td><span class="tag bad">已不合格</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">事件</button></div></td>
+            </tr>
+            <tr>
+              <td class="id nowrap">JC20261031-0002</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-3.svg" alt=""><div><b>糖醋里脊</b><span>LY20261029-0014</span></div></div></td>
+              <td>添加剂</td><td class="mono-num">2</td><td><span class="tag bad">不合格</span></td>
+              <td class="nowrap">10-31 11:05</td><td><span class="tag bad">已不合格</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">事件</button></div></td>
+            </tr>
+            <tr>
+              <td class="id nowrap">JC20261031-0001</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-7.svg" alt=""><div><b>鲜肉包子</b><span>LY20261027-0021</span></div></div></td>
+              <td>感官</td><td class="mono-num">4</td><td><span class="tag warn">待复检</span></td>
+              <td class="nowrap">10-31 09:30</td><td><span class="tag warn">待复核</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">复检</button></div></td>
+            </tr>
+            <tr>
+              <td class="id nowrap">JC20261030-0012</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-6.svg" alt=""><div><b>紫菜蛋花汤</b><span>LY20261028-0009</span></div></div></td>
+              <td>综合</td><td class="mono-num">6</td><td><span class="tag ok">合格</span></td>
+              <td class="nowrap">10-30 15:10</td><td><span class="tag ok">已合格</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">报告</button></div></td>
+            </tr>
+            <tr>
+              <td class="id nowrap">JC20261030-0011</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-1.svg" alt=""><div><b>红烧狮子头</b><span>LY20261030-0007</span></div></div></td>
+              <td>微生物</td><td class="mono-num">3</td><td><span class="tag plain">—</span></td>
+              <td class="nowrap">10-30 14:00</td><td><span class="tag doing">检测中</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">录入结果</button></div></td>
+            </tr>
+            <tr>
+              <td class="id nowrap">JC20261030-0010</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-4.svg" alt=""><div><b>香菇滑鸡</b><span>LY20261030-0002</span></div></div></td>
+              <td>感官</td><td class="mono-num">4</td><td><span class="tag ok">合格</span></td>
+              <td class="nowrap">10-30 11:20</td><td><span class="tag ok">已合格</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">报告</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pager">
+          <span>共 51 条 · 每页 10 条</span>
+          <div class="pgs"><span class="pg">‹</span><span class="pg on">1</span><span class="pg">2</span><span class="pg">3</span><span class="pg">›</span></div>
+        </div>
+      </div>
+
+      <!-- 右侧检测录入面板 -->
+      <div class="card">
+        <div class="card-h"><h3>检测结果录入</h3><span class="more">JC20261031-0005</span></div>
+        <div style="background:#FBF6F7;border:1px solid #F0E2E5;border-radius:6px;padding:10px 12px;font-size:12px;margin-bottom:14px">
+          <div style="display:flex"><span class="muted">留样编号</span><b style="margin-left:auto" class="mono-num">LY20261031-0007</b></div>
+          <div style="display:flex;margin-top:4px"><span class="muted">食品</span><b style="margin-left:auto">红烧狮子头</b></div>
+          <div style="display:flex;margin-top:4px"><span class="muted">抽检方式</span><b style="margin-left:auto">随机抽检</b></div>
+        </div>
+
+        <div class="group-t">检测项目</div>
+        <div class="item-row" style="font-size:11.5px;color:var(--c-text-2);border-bottom:1px solid var(--c-line)">
+          <span>项目</span><span>标准值</span><span>实测值</span><span>判定</span>
+        </div>
+        <div class="item-row"><span>菌落总数</span><span class="muted">≤ 10⁵ CFU/g</span><input class="inp" style="height:28px;min-width:0;width:100%" value="2.3×10⁴"><span><span class="tag ok">合格</span></span></div>
+        <div class="item-row"><span>大肠菌群</span><span class="muted">≤ 100 MPN/g</span><input class="inp" style="height:28px;min-width:0;width:100%" value="26"><span><span class="tag ok">合格</span></span></div>
+        <div class="item-row"><span>亚硝酸盐</span><span class="muted">≤ 30 mg/kg</span><input class="inp" style="height:28px;min-width:0;width:100%" value="4.1"><span><span class="tag ok">合格</span></span></div>
+        <div class="item-row"><span>感官（色泽/气味）</span><span class="muted">无异味</span><input class="inp" style="height:28px;min-width:0;width:100%" value="正常"><span><span class="tag ok">合格</span></span></div>
+
+        <div class="form-row" style="margin-top:14px">
+          <label style="width:76px;flex:0 0 76px">综合结论</label>
+          <div class="ctrl"><select class="sel" style="width:100%;max-width:none"><option>合格</option><option>不合格</option><option>待复检</option></select></div>
+        </div>
+        <div class="form-row">
+          <label style="width:76px;flex:0 0 76px">检测报告</label>
+          <div class="ctrl">
+            <div class="upload-box" style="height:64px;font-size:11.5px">
+              <svg width="16" height="16"><use href="../icons.svg#i-upload"/></svg>上传 PDF / 图片报告
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label style="width:76px;flex:0 0 76px">备注</label>
+          <div class="ctrl"><input class="inp" style="width:100%;max-width:none" placeholder="不合格时必填原因说明"></div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <button class="btn btn-ghost" style="flex:1;justify-content:center">暂存</button>
+          <button class="btn btn-primary" style="flex:1;justify-content:center">提交结果</button>
+        </div>
+        <p class="hint" style="margin-top:10px">提交「不合格」后，系统自动生成食品安全事件并锁定该留样，禁止销毁。</p>
+      </div>
+    </div>
+  </template>
+</div>
+</body>
+</html>

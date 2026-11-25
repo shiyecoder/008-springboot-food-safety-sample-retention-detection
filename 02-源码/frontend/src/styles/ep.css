@@ -1,0 +1,110 @@
+/* Element Plus 主题对齐设计稿（主色 #5B2533 / 辅助 #2F6F6A） */
+:root {
+  --el-color-primary: #5b2533;
+  --el-color-primary-light-3: #7a3947;
+  --el-color-primary-light-5: #9c6270;
+  --el-color-primary-light-7: #c3a0a8;
+  --el-color-primary-light-8: #d8bfc4;
+  --el-color-primary-light-9: #f3e7ea;
+  --el-color-primary-dark-2: #471c28;
+  --el-color-success: #2d765c;
+  --el-color-warning: #b0762a;
+  --el-color-danger: #a61b29;
+  --el-color-info: #7a6e72;
+  --el-border-radius-base: 6px;
+  --el-font-size-base: 13px;
+  --el-text-color-regular: #2a2226;
+  --el-border-color: #e8dfda;
+  --el-border-color-light: #efe6e1;
+  --el-fill-color-blank: #fff;
+}
+
+.el-button {
+  font-weight: 500;
+}
+.el-button--primary {
+  background: var(--c-brand);
+  border-color: var(--c-brand);
+}
+.el-button--primary:hover {
+  background: var(--c-brand-d);
+  border-color: var(--c-brand-d);
+}
+.el-dialog {
+  border-radius: 8px;
+}
+.el-dialog__header {
+  padding: 16px 20px 10px;
+  margin-right: 0;
+  border-bottom: 1px solid var(--c-line);
+}
+.el-dialog__title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.el-dialog__body {
+  padding: 18px 20px;
+}
+.el-dialog__footer {
+  padding: 12px 20px 18px;
+  border-top: 1px solid var(--c-line);
+}
+.el-message-box__title {
+  font-size: 15px;
+}
+.el-input__wrapper,
+.el-select__wrapper,
+.el-textarea__inner {
+  box-shadow: 0 0 0 1px var(--c-line) inset;
+}
+.el-input__wrapper.is-focus,
+.el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 1px var(--c-brand) inset;
+}
+.el-table {
+  --el-table-border-color: #f4ede9;
+  --el-table-header-bg-color: #faf7f5;
+  --el-table-header-text-color: #7a6e72;
+  font-size: 13px;
+}
+.el-table th.el-table__cell {
+  font-weight: 500;
+}
+.el-form-item__label {
+  font-size: 13px;
+  color: var(--c-text-2);
+}
+.el-tabs__item.is-active {
+  color: var(--c-brand);
+  font-weight: 600;
+}
+.el-tabs__active-bar {
+  background-color: var(--c-brand);
+}
+.el-tabs__item:hover {
+  color: var(--c-accent);
+}
+.el-upload-list__item {
+  font-size: 12px;
+}
+.el-drawer__header {
+  margin-bottom: 0;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--c-line);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--c-text);
+}
+.el-drawer__body {
+  padding: 18px 20px;
+}
+.el-drawer__footer {
+  border-top: 1px solid var(--c-line);
+  padding: 12px 20px;
+}
+.el-tag {
+  border-radius: 4px;
+}
+.el-pagination {
+  --el-pagination-font-size: 12px;
+}

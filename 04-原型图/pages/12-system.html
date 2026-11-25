@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>系统管理 · 食品安全留样与检测管理系统</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/shell.js" defer></script>
+<style>
+  .tree{font-size:12.5px;line-height:30px}
+  .tree .lv1{font-weight:600}
+  .tree .lv2{padding-left:24px;color:var(--c-text-2)}
+  .tree label{display:flex;align-items:center;gap:7px}
+</style>
+</head>
+<body>
+<div class="shell" data-shell="管理员" data-active="/system">
+  <template data-body>
+    <div class="page-h">
+      <div><h1>系统管理</h1><p>用户、角色、菜单授权与操作日志 · 当前 4 个角色，12 名用户</p></div>
+      <div class="acts">
+        <button class="btn btn-ghost">导出日志</button>
+        <button class="btn btn-primary"><svg width="14" height="14"><use href="../icons.svg#i-plus"/></svg>新增用户</button>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:16px">
+      <!-- 注意：这里不出现「菜单管理」入口，避免管理员误改系统菜单 -->
+      <div class="tabs" style="padding:0 14px">
+        <a class="on">用户管理 <span class="cnt">12</span></a>
+        <a>角色管理 <span class="cnt">4</span></a>
+        <a>分配菜单</a>
+        <a>操作日志</a>
+      </div>
+      <div class="filters" style="border:0;border-bottom:1px solid var(--c-line);border-radius:0;margin:0">
+        <div class="fi"><label>用户名 / 姓名</label><input class="inp" placeholder="输入关键字"></div>
+        <div class="fi"><label>角色</label><select class="sel"><option>全部角色</option><option>留样员</option><option>检测员</option><option>食品安全主管</option><option>系统管理员</option></select></div>
+        <div class="fi"><label>所属组织</label><select class="sel"><option>全部</option><option>后勤保障处</option><option>食品安全科</option><option>第一食堂</option><option>第二食堂</option></select></div>
+        <div class="fi"><label>状态</label><select class="sel" style="min-width:120px"><option>全部</option><option>启用</option><option>停用</option><option>锁定</option></select></div>
+        <div class="sp"><button class="btn btn-ghost">重置</button><button class="btn btn-primary">查询</button></div>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>用户名</th><th>姓名</th><th>角色</th><th>所属组织</th><th>数据范围</th><th>联系方式</th><th>最近登录</th><th>状态</th><th>操作</th></tr></thead>
+        <tbody>
+          <tr><td class="id nowrap">liuyang01</td><td><div class="food-cell"><span class="av" style="width:26px;height:26px">李</span><div><b>李秀兰</b><span>留样员</span></div></div></td><td>留样员</td><td>第二食堂</td><td><span class="tag plain">仅本人</span></td><td class="muted">138****2210</td><td class="nowrap">10-31 08:12</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">重置密码</button></div></td></tr>
+          <tr><td class="id nowrap">liuyang02</td><td><div class="food-cell"><span class="av" style="width:26px;height:26px">周</span><div><b>周慧敏</b><span>留样员</span></div></div></td><td>留样员</td><td>第一食堂</td><td><span class="tag plain">仅本人</span></td><td class="muted">139****7734</td><td class="nowrap">10-31 07:40</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">重置密码</button></div></td></tr>
+          <tr><td class="id nowrap">jiance01</td><td><div class="food-cell"><span class="av" style="width:26px;height:26px;background:#7A3947">陈</span><div><b>陈志远</b><span>检测员</span></div></div></td><td>检测员</td><td>食品安全科</td><td><span class="tag doing">本部门</span></td><td class="muted">137****5512</td><td class="nowrap">10-31 09:05</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">重置密码</button></div></td></tr>
+          <tr><td class="id nowrap">zhuguan01</td><td><div class="food-cell"><span class="av" style="width:26px;height:26px;background:#B0762A">王</span><div><b>王建国</b><span>食品安全主管</span></div></div></td><td>食品安全主管</td><td>食品安全科</td><td><span class="tag key">全部</span></td><td class="muted">136****8890</td><td class="nowrap">10-31 08:55</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">重置密码</button></div></td></tr>
+          <tr><td class="id nowrap">admin</td><td><div class="food-cell"><span class="av" style="width:26px;height:26px;background:#5B2533">管</span><div><b>系统管理员</b><span>admin</span></div></div></td><td>系统管理员</td><td>后勤保障处</td><td><span class="tag key">全部</span></td><td class="muted">—</td><td class="nowrap">10-31 15:20</td><td><span class="tag ok">启用</span></td><td><div class="op"><button class="btn btn-text btn-sm">编辑</button><button class="btn btn-text btn-sm">重置密码</button></div></td></tr>
+          <tr><td class="id nowrap">liuyang03</td><td><div class="food-cell"><span class="av" style="width:26px;height:26px">孙</span><div><b>孙立</b><span>留样员</span></div></div></td><td>留样员</td><td>第一食堂</td><td><span class="tag plain">仅本人</span></td><td class="muted">135****3321</td><td class="nowrap">10-30 17:02</td><td><span class="tag bad">锁定</span></td><td><div class="op"><button class="btn btn-text btn-sm">解锁</button><button class="btn btn-text btn-sm">编辑</button></div></td></tr>
+        </tbody>
+      </table>
+      <div class="pager"><span>共 12 条 · 每页 10 条</span><div class="pgs"><span class="pg on">1</span><span class="pg">2</span></div></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="card-h"><h3>为角色分配菜单 · 留样员</h3><span class="more">保存授权</span></div>
+        <div class="tree">
+          <label class="lv1"><input type="checkbox" checked> 食品安全看板</label>
+          <label class="lv1"><input type="checkbox" checked> 当日留样任务</label>
+          <label class="lv2"><input type="checkbox" checked> 查看任务</label>
+          <label class="lv2"><input type="checkbox" checked> 留样登记与提交</label>
+          <label class="lv2"><input type="checkbox" checked> 上传现场照片</label>
+          <label class="lv1"><input type="checkbox" checked> 留样台账</label>
+          <label class="lv2"><input type="checkbox" checked> 查看本人数据</label>
+          <label class="lv2"><input type="checkbox"> 查看全部数据</label>
+          <label class="lv1"><input type="checkbox" checked> 留样柜位图</label>
+          <label class="lv1"><input type="checkbox" checked> 到期处置中心</label>
+          <label class="lv2"><input type="checkbox" checked> 发起销毁申请</label>
+          <label class="lv2"><input type="checkbox"> 审批销毁</label>
+        </div>
+        <div class="note" style="margin-top:10px">菜单权限只控制侧边栏可见性，写接口另有按钮权限与数据范围校验，仅有菜单权限不能调用写接口。</div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h3>最近操作日志</h3><span class="more">查看全部</span></div>
+        <table class="tbl" style="margin-top:-4px">
+          <thead><tr><th>时间</th><th>操作人</th><th>操作</th><th>对象</th><th>结果</th></tr></thead>
+          <tbody>
+            <tr><td class="nowrap">10-31 15:50</td><td>王建国</td><td>人工修正校验等级</td><td class="muted">EV20261031-0027</td><td><span class="tag ok">成功</span></td></tr>
+            <tr><td class="nowrap">10-31 15:42</td><td>系统</td><td>执行到期处置校验</td><td class="muted">当日午餐批次</td><td><span class="tag ok">成功</span></td></tr>
+            <tr><td class="nowrap">10-31 14:20</td><td>陈志远</td><td>提交检测结果</td><td class="muted">JC20261031-0004</td><td><span class="tag ok">成功</span></td></tr>
+            <tr><td class="nowrap">10-31 13:45</td><td>陈志远</td><td>生成不合格事件</td><td class="muted">INC20261031-003</td><td><span class="tag ok">成功</span></td></tr>
+            <tr><td class="nowrap">10-31 12:18</td><td>李秀兰</td><td>提交留样复核</td><td class="muted">LY20261031-0007</td><td><span class="tag ok">成功</span></td></tr>
+            <tr><td class="nowrap">10-31 11:52</td><td>周慧敏</td><td>复核驳回</td><td class="muted">LY20261031-0006</td><td><span class="tag bad">拒绝</span></td></tr>
+          </tbody>
+        </table>
+        <div class="note" style="margin-top:10px">登录连续失败 5 次锁定 10 分钟；任何接口与日志均不返回密码字段。</div>
+      </div>
+    </div>
+  </template>
+</div>
+</body>
+</html>

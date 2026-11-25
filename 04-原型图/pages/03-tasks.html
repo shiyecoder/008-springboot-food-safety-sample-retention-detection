@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>我的留样任务 · 留样员工作台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<!-- 留样员端：顶部导航 + 卡片流，刻意区别于后台侧边栏，四类角色一眼可辨 -->
+<header class="portal-top">
+  <span class="brand"><i></i>食品安全留样 · 留样员工作台</span>
+  <nav>
+    <a href="03-tasks.html" class="on">我的任务</a>
+    <a href="04-register.html">留样登记</a>
+    <a href="06-cabinet.html">柜位状态</a>
+    <a href="09-expiry.html">到期处置</a>
+  </nav>
+  <span class="me">
+    <svg width="17" height="17"><use href="../icons.svg#i-bell"/></svg>
+    <span class="av" style="background:#2F6F6A">李</span>李秀兰 ▾
+  </span>
+</header>
+
+<div class="portal-body">
+  <div class="portal-hero">
+    <div>
+      <h2>上午好，李秀兰</h2>
+      <p>第二食堂 · 午餐批次共 12 项待留样，其中 2 项距截止不足 40 分钟</p>
+    </div>
+    <div class="stat">
+      <div><b>12</b><span>待留样</span></div>
+      <div><b>2</b><span>即将超时</span></div>
+      <div><b>5</b><span>待复核</span></div>
+      <div><b>31</b><span>本月已完成</span></div>
+    </div>
+  </div>
+
+  <!-- 紧急提示条 -->
+  <div class="note" style="margin-bottom:16px;display:flex;align-items:center;gap:10px">
+    <svg width="15" height="15" style="color:var(--c-danger);flex:0 0 15px"><use href="../icons.svg#i-warning"/></svg>
+    <span><b style="color:var(--c-danger)">2 项即将超时：</b>红烧狮子头（LY20261031-0007）与蒜蓉西兰花（LY20261031-0011）须在 12:40 前完成称重入柜，超时后任务自动标记逾期并计入完成率。</span>
+    <button class="btn btn-danger btn-sm" style="margin-left:auto" onclick="location.href='04-register.html'">立即处理</button>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-h">
+      <h3>待办任务（12）</h3>
+      <span class="muted" style="margin-left:auto;font-size:12px">按截止时间升序</span>
+    </div>
+    <div class="tbl-wrap" style="border:0">
+      <table class="tbl">
+        <thead><tr>
+          <th>任务编号</th><th>食品名称</th><th>餐次</th><th>生产批次</th>
+          <th class="r">标准重量</th><th>存放要求</th><th>截止时间</th><th>状态</th><th>操作</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="id nowrap">LY20261031-0007</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-1.svg" alt=""><div><b>红烧狮子头</b><span>一食堂 · 热菜档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261031-L01</td>
+            <td class="r mono-num">≥ 125 g</td><td class="muted">0–4 ℃ 冷藏</td>
+            <td class="nowrap" style="color:var(--c-danger)">10-31 12:40</td>
+            <td><span class="tag bad">即将超时</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm" onclick="location.href='04-register.html'">去留样</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261031-0011</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-2.svg" alt=""><div><b>蒜蓉西兰花</b><span>一食堂 · 素菜档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261031-L02</td>
+            <td class="r mono-num">≥ 125 g</td><td class="muted">0–4 ℃ 冷藏</td>
+            <td class="nowrap" style="color:var(--c-danger)">10-31 12:40</td>
+            <td><span class="tag bad">即将超时</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm" onclick="location.href='04-register.html'">去留样</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261031-0008</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-3.svg" alt=""><div><b>糖醋里脊</b><span>二食堂 · 热菜档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261031-L01</td>
+            <td class="r mono-num">≥ 125 g</td><td class="muted">0–4 ℃ 冷藏</td>
+            <td class="nowrap">10-31 13:00</td>
+            <td><span class="tag pending">待执行</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm" onclick="location.href='04-register.html'">去留样</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261031-0009</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-4.svg" alt=""><div><b>香菇滑鸡</b><span>二食堂 · 热菜档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261031-L01</td>
+            <td class="r mono-num">≥ 125 g</td><td class="muted">0–4 ℃ 冷藏</td>
+            <td class="nowrap">10-31 13:00</td>
+            <td><span class="tag pending">待执行</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm" onclick="location.href='04-register.html'">去留样</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261031-0010</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-5.svg" alt=""><div><b>清炒时蔬</b><span>二食堂 · 素菜档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261031-L02</td>
+            <td class="r mono-num">≥ 125 g</td><td class="muted">0–4 ℃ 冷藏</td>
+            <td class="nowrap">10-31 13:00</td>
+            <td><span class="tag pending">待执行</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm" onclick="location.href='04-register.html'">去留样</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261031-0012</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-6.svg" alt=""><div><b>紫菜蛋花汤</b><span>二食堂 · 汤品档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261031-L03</td>
+            <td class="r mono-num">≥ 250 g</td><td class="muted">0–4 ℃ 冷藏</td>
+            <td class="nowrap">10-31 13:00</td>
+            <td><span class="tag pending">待执行</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm" onclick="location.href='04-register.html'">去留样</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261031-0005</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-7.svg" alt=""><div><b>鲜肉包子</b><span>面点档</span></div></div></td>
+            <td>早餐</td><td class="muted">PC-20261031-B01</td>
+            <td class="r mono-num">≥ 100 g</td><td class="muted">0–4 ℃ 冷藏</td>
+            <td class="nowrap">10-31 13:20</td>
+            <td><span class="tag warn">待复核</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">查看</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261031-0004</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-8.svg" alt=""><div><b>小米粥</b><span>面点档</span></div></div></td>
+            <td>早餐</td><td class="muted">PC-20261031-B01</td>
+            <td class="r mono-num">≥ 250 g</td><td class="muted">0–4 ℃ 冷藏</td>
+            <td class="nowrap">10-31 13:20</td>
+            <td><span class="tag warn">待复核</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">查看</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pager">
+        <span>共 12 条 · 每页 10 条</span>
+        <div class="pgs"><span class="pg">‹</span><span class="pg on">1</span><span class="pg">2</span><span class="pg">›</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid3" style="grid-template-columns:1.4fr 1fr 1fr">
+    <div class="card">
+      <div class="card-h"><h3>本周留样量</h3><span class="more">查看明细</span></div>
+      <div class="stat-strip">
+        <div class="s"><b>62</b>已完成留样</div>
+        <div class="s"><b>97.4%</b>按时完成率</div>
+        <div class="s"><b>128.6g</b>平均重量</div>
+        <div class="s"><b>0</b>复核驳回</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-h"><h3>常去仓位</h3></div>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:12.5px">
+        <div style="display:flex"><span class="muted">冷藏柜 A · 3 层 02</span><span style="margin-left:auto" class="mono-num">8 次</span></div>
+        <div style="display:flex"><span class="muted">冷藏柜 A · 3 层 03</span><span style="margin-left:auto" class="mono-num">6 次</span></div>
+        <div style="display:flex"><span class="muted">冷藏柜 B · 1 层 01</span><span style="margin-left:auto" class="mono-num">4 次</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-h"><h3>待办提醒</h3></div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:12.5px">
+        <div><span class="tag warn">复核驳回</span> 凉拌木耳 重量 108g 低于标准，需重新留样</div>
+        <div><span class="tag bad">到期</span> 3 份留样今日到期，等待主管审批销毁</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

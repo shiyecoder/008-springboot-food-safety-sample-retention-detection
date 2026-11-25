@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>食品安全看板 · 留样与检测管理系统</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/shell.js" defer></script>
+</head>
+<body>
+<div class="shell" data-shell="主管" data-active="/dashboard">
+  <template data-body>
+    <div class="page-h">
+      <div>
+        <h1>食品安全看板</h1>
+        <p>统计区间 2026-05-01 至 2026-10-31 · 数据更新于 2026-10-31 15:40</p>
+      </div>
+      <div class="acts">
+        <select class="sel" style="min-width:180px">
+          <option>近 30 天</option><option>本月</option><option>本季度</option><option>本年</option>
+        </select>
+        <button class="btn btn-ghost">导出看板</button>
+        <button class="btn btn-primary">新建批次</button>
+      </div>
+    </div>
+
+    <!-- 6 个核心指标 -->
+    <div class="kpis">
+      <div class="kpi"><div class="k">应留样数（今日）</div><div class="v">48<small>份</small></div><div class="d">较昨日 <i>+4</i></div></div>
+      <div class="kpi teal"><div class="k">实际留样率</div><div class="v">95.8<small>%</small></div><div class="d">46 / 48 份已入柜</div></div>
+      <div class="kpi ok"><div class="k">重量合格率</div><div class="v">97.9<small>%</small></div><div class="d">1 份低于标准 125g</div></div>
+      <div class="kpi bad"><div class="k">检测异常数</div><div class="v">3<small>件</small></div><div class="d"><i class="dn">1 件不合格未关闭</i></div></div>
+      <div class="kpi warn"><div class="k">超期未处置</div><div class="v">3<small>份</small></div><div class="d">最早逾期 1.5 天</div></div>
+      <div class="kpi neutral"><div class="k">责任人完成率</div><div class="v">93.2<small>%</small></div><div class="d">12 名留样员在岗</div></div>
+    </div>
+
+    <!-- 6 个图表：一屏内可读，点击可回明细 -->
+    <div class="grid3">
+      <div class="card">
+        <div class="chart-h"><b>近 7 日留样量趋势</b><span>应留 / 实留</span></div>
+        <svg class="chart" viewBox="0 0 520 190" preserveAspectRatio="none">
+          <g stroke="#EFE6E1" stroke-width="1">
+            <line x1="36" y1="30" x2="512" y2="30"/><line x1="36" y1="73" x2="512" y2="73"/>
+            <line x1="36" y1="117" x2="512" y2="117"/><line x1="36" y1="160" x2="512" y2="160"/>
+          </g>
+          <g fill="#A2969A" font-size="10" font-family="sans-serif">
+            <text x="4" y="34">55</text><text x="4" y="77">50</text><text x="4" y="121">45</text><text x="4" y="164">40</text>
+            <text x="40" y="182">10-25</text><text x="140" y="182">10-26</text><text x="240" y="182">10-27</text>
+            <text x="340" y="182">10-28</text><text x="440" y="182">10-29</text><text x="494" y="182">10-31</text>
+          </g>
+          <path d="M40 108 L116 91 L193 117 L270 73 L347 99 L423 125 L500 91" fill="none" stroke="#5B2533" stroke-width="2"/>
+          <path d="M40 125 L116 108 L193 117 L270 91 L347 117 L423 134 L500 108" fill="none" stroke="#2F6F6A" stroke-width="2" stroke-dasharray="4 3"/>
+          <g fill="#5B2533"><circle cx="40" cy="108" r="3"/><circle cx="116" cy="91" r="3"/><circle cx="193" cy="117" r="3"/><circle cx="270" cy="73" r="3"/><circle cx="347" cy="99" r="3"/><circle cx="423" cy="125" r="3"/><circle cx="500" cy="91" r="3"/></g>
+          <g fill="#2F6F6A"><circle cx="40" cy="125" r="2.6"/><circle cx="116" cy="108" r="2.6"/><circle cx="193" cy="117" r="2.6"/><circle cx="270" cy="91" r="2.6"/><circle cx="347" cy="117" r="2.6"/><circle cx="423" cy="134" r="2.6"/><circle cx="500" cy="108" r="2.6"/></g>
+        </svg>
+      </div>
+
+      <div class="card">
+        <div class="chart-h"><b>留样状态分布</b><span>共 46 份在管</span></div>
+        <svg class="chart" viewBox="0 0 200 190">
+          <g transform="translate(100,88)">
+            <circle r="48" fill="none" stroke="#F3EBE7" stroke-width="18"/>
+            <circle r="48" fill="none" stroke="#2F6F6A" stroke-width="18" stroke-dasharray="144 302" stroke-dashoffset="0" transform="rotate(-90)"/>
+            <circle r="48" fill="none" stroke="#B0762A" stroke-width="18" stroke-dasharray="52 302" stroke-dashoffset="-144" transform="rotate(-90)"/>
+            <circle r="48" fill="none" stroke="#5B2533" stroke-width="18" stroke-dasharray="39 302" stroke-dashoffset="-196" transform="rotate(-90)"/>
+            <circle r="48" fill="none" stroke="#A61B29" stroke-width="18" stroke-dasharray="46 302" stroke-dashoffset="-235" transform="rotate(-90)"/>
+            <circle r="48" fill="none" stroke="#C9B6AE" stroke-width="18" stroke-dasharray="19 302" stroke-dashoffset="-281" transform="rotate(-90)"/>
+            <text x="0" y="2" text-anchor="middle" font-size="22" font-weight="600" fill="#2A2226">46</text>
+            <text x="0" y="20" text-anchor="middle" font-size="10" fill="#7A6E72">在管留样</text>
+          </g>
+          <g font-size="10" fill="#7A6E72">
+            <rect x="26" y="152" width="8" height="8" fill="#2F6F6A"/><text x="38" y="160">保留中 22</text>
+            <rect x="102" y="152" width="8" height="8" fill="#B0762A"/><text x="114" y="160">待复核 8</text>
+            <rect x="26" y="172" width="8" height="8" fill="#A61B29"/><text x="38" y="180">待销毁 7</text>
+            <rect x="102" y="172" width="8" height="8" fill="#5B2533"/><text x="114" y="180">待检测 6</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="card">
+        <div class="chart-h"><b>档口留样完成率</b><span>按供餐档口</span></div>
+        <svg class="chart" viewBox="0 0 320 190">
+          <g font-size="10.5" fill="#2A2226">
+            <text x="0" y="26">一食堂热菜</text><rect x="78" y="16" width="210" height="9" rx="2" fill="#F3EBE7"/><rect x="78" y="16" width="202" height="9" rx="2" fill="#5B2533"/><text x="292" y="26" fill="#7A6E72">96%</text>
+            <text x="0" y="56">二食堂热菜</text><rect x="78" y="46" width="210" height="9" rx="2" fill="#F3EBE7"/><rect x="78" y="46" width="193" height="9" rx="2" fill="#5B2533"/><text x="292" y="56" fill="#7A6E72">92%</text>
+            <text x="0" y="86">面点档</text><rect x="78" y="76" width="210" height="9" rx="2" fill="#F3EBE7"/><rect x="78" y="76" width="185" height="9" rx="2" fill="#2F6F6A"/><text x="292" y="86" fill="#7A6E72">88%</text>
+            <text x="0" y="116">凉菜间</text><rect x="78" y="106" width="210" height="9" rx="2" fill="#F3EBE7"/><rect x="78" y="106" width="160" height="9" rx="2" fill="#B0762A"/><text x="292" y="116" fill="#7A6E72">76%</text>
+            <text x="0" y="146">教职工餐厅</text><rect x="78" y="136" width="210" height="9" rx="2" fill="#F3EBE7"/><rect x="78" y="136" width="197" height="9" rx="2" fill="#5B2533"/><text x="292" y="146" fill="#7A6E72">94%</text>
+            <text x="0" y="176">清真窗口</text><rect x="78" y="166" width="210" height="9" rx="2" fill="#F3EBE7"/><rect x="78" y="166" width="176" height="9" rx="2" fill="#2F6F6A"/><text x="292" y="176" fill="#7A6E72">84%</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-top:14px">
+      <div class="card">
+        <div class="chart-h"><b>重量不合格率趋势</b><span>单位 %</span></div>
+        <svg class="chart" viewBox="0 0 520 190" preserveAspectRatio="none">
+          <g stroke="#EFE6E1" stroke-width="1"><line x1="36" y1="40" x2="512" y2="40"/><line x1="36" y1="90" x2="512" y2="90"/><line x1="36" y1="140" x2="512" y2="140"/></g>
+          <g fill="#A2969A" font-size="10"><text x="8" y="44">3.0</text><text x="8" y="94">1.5</text><text x="8" y="144">0</text>
+            <text x="40" y="180">5 月</text><text x="150" y="180">6 月</text><text x="260" y="180">7 月</text><text x="370" y="180">8 月</text><text x="470" y="180">9 月</text></g>
+          <path d="M48 92 L160 102 L270 84 L380 112 L490 108" fill="none" stroke="#A61B29" stroke-width="2"/>
+          <path d="M48 92 L160 102 L270 84 L380 112 L490 108 L490 140 L48 140 Z" fill="#A61B29" opacity=".08"/>
+          <g fill="#A61B29"><circle cx="48" cy="92" r="3"/><circle cx="160" cy="102" r="3"/><circle cx="270" cy="84" r="3"/><circle cx="380" cy="112" r="3"/><circle cx="490" cy="108" r="3"/></g>
+        </svg>
+      </div>
+
+      <div class="card">
+        <div class="chart-h"><b>检测结果分布</b><span>近 30 天 51 件</span></div>
+        <svg class="chart" viewBox="0 0 260 190">
+          <line x1="30" y1="150" x2="246" y2="150" stroke="#E8DFDA"/>
+          <rect x="52" y="46" width="30" height="104" rx="2" fill="#2D765C"/><text x="67" y="40" text-anchor="middle" font-size="10.5" fill="#2A2226">38</text>
+          <rect x="104" y="126" width="30" height="24" rx="2" fill="#B0762A"/><text x="119" y="120" text-anchor="middle" font-size="10.5" fill="#2A2226">4</text>
+          <rect x="156" y="134" width="30" height="16" rx="2" fill="#A61B29"/><text x="171" y="128" text-anchor="middle" font-size="10.5" fill="#2A2226">3</text>
+          <rect x="208" y="118" width="30" height="32" rx="2" fill="#5B2533"/><text x="223" y="112" text-anchor="middle" font-size="10.5" fill="#2A2226">6</text>
+          <g font-size="10" fill="#7A6E72" text-anchor="middle">
+            <text x="67" y="168">合格</text><text x="119" y="168">待复检</text><text x="171" y="168">不合格</text><text x="223" y="168">待检测</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="card">
+        <div class="chart-h"><b>不合格事件趋势</b><span>起数 / 月</span></div>
+        <svg class="chart" viewBox="0 0 260 190">
+          <g stroke="#EFE6E1"><line x1="30" y1="40" x2="246" y2="40"/><line x1="30" y1="95" x2="246" y2="95"/><line x1="30" y1="150" x2="246" y2="150"/></g>
+          <path d="M42 150 L78 150 L114 95 L150 122 L186 40 L222 95" fill="none" stroke="#5B2533" stroke-width="2"/>
+          <path d="M42 150 L78 150 L114 95 L150 122 L186 40 L222 95 L222 150 L42 150 Z" fill="#5B2533" opacity=".07"/>
+          <g fill="#5B2533"><circle cx="42" cy="150" r="3"/><circle cx="78" cy="150" r="3"/><circle cx="114" cy="95" r="3"/><circle cx="150" cy="122" r="3"/><circle cx="186" cy="40" r="3"/><circle cx="222" cy="95" r="3"/></g>
+          <g font-size="10" fill="#7A6E72" text-anchor="middle"><text x="42" y="170">6月</text><text x="78" y="170">7月</text><text x="114" y="170">8月</text><text x="150" y="170">9月</text><text x="186" y="170">10月</text><text x="222" y="170">11月</text></g>
+        </svg>
+      </div>
+    </div>
+  </template>
+</div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>到期处置中心 · 留样覆盖率与到期处置校验</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/shell.js" defer></script>
+<style>
+  .bar-wrap{display:flex;align-items:center;gap:10px}
+  .explain{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .explain .box{border:1px solid var(--c-line);border-radius:6px;padding:12px 14px}
+  .explain .box h4{font-size:12.5px;font-weight:600;margin-bottom:8px;color:var(--c-text)}
+  .explain .box ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--c-text-2)}
+  .explain .box li::before{content:"—";margin-right:6px;color:var(--c-text-3)}
+  .adjust{background:#FBF6F7;border:1px dashed #DFC7CD;border-radius:6px;padding:12px 14px;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="shell" data-shell="主管" data-active="/expiry">
+  <template data-body>
+    <div class="page-h">
+      <div><h1>到期处置中心</h1><p>到期提醒、处置校验与双人销毁 · 当前 7 份待销毁，3 份已逾期</p></div>
+      <div class="acts">
+        <button class="btn btn-ghost">重新计算</button>
+        <button class="btn btn-primary"><svg width="14" height="14"><use href="../icons.svg#i-disposal"/></svg>发起销毁</button>
+      </div>
+    </div>
+
+    <!-- 创新点：留样覆盖率与到期处置校验 -->
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-h">
+        <h3>留样覆盖率与到期处置校验</h3>
+        <span class="tag key" style="margin-left:10px">规则 v3</span>
+        <span class="more">计算留痕 · 快照 EV20261031-0027</span>
+      </div>
+
+      <div class="eval-grid">
+        <div class="score-box">
+          <div class="muted" style="font-size:12px">综合校验得分</div>
+          <div class="big">84.0</div>
+          <div class="lv" style="background:#FBF0DF;color:var(--c-warn)">等级：良</div>
+          <div style="margin-top:14px;font-size:12.5px;color:var(--c-text-2);line-height:22px">
+            推荐结果：<b style="color:var(--c-text)">可进入销毁流程</b><br>
+            需补齐销毁照片与监督人签字后再提交审批
+          </div>
+          <div style="border-top:1px solid #F0E2E5;margin-top:14px;padding-top:10px;font-size:11.5px;color:var(--c-text-3);text-align:left;line-height:19px">
+            计算时间：2026-10-31 15:42:10<br>
+            执行人：系统规则引擎<br>
+            输入快照：当日午餐 48 份应留样 / 46 份实留<br>
+            规则版本：v3（2026-09-01 生效）
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex;font-size:11.5px;color:var(--c-text-3);padding-bottom:6px">
+            <span style="width:120px">影响因素</span><span style="flex:1">得分构成</span><span style="width:44px;text-align:right">权重</span><span style="width:52px;text-align:right">得分</span>
+          </div>
+          <div class="factor"><span class="n">菜单批次</span><div class="bar"><i style="width:100%;background:#2D765C"></i></div><span class="w">15%</span><span class="sc">15.0</span></div>
+          <div class="factor"><span class="n">应留样数量</span><div class="bar"><i style="width:100%;background:#2D765C"></i></div><span class="w">20%</span><span class="sc">20.0</span></div>
+          <div class="factor"><span class="n">实际重量</span><div class="bar"><i style="width:90%;background:#2F6F6A"></i></div><span class="w">20%</span><span class="sc">18.0</span></div>
+          <div class="factor"><span class="n">入柜时间</span><div class="bar"><i style="width:80%;background:#B0762A"></i></div><span class="w">15%</span><span class="sc">12.0</span></div>
+          <div class="factor"><span class="n">保留时长</span><div class="bar"><i style="width:100%;background:#2D765C"></i></div><span class="w">15%</span><span class="sc">15.0</span></div>
+          <div class="factor"><span class="n">处置凭证完整性</span><div class="bar"><i style="width:27%;background:#A61B29"></i></div><span class="w">15%</span><span class="sc">4.0</span></div>
+
+          <div class="explain" style="margin-top:14px">
+            <div class="box">
+              <h4>主要影响因素</h4>
+              <ul>
+                <li>应留样数量 48 / 实留 46，覆盖率达 95.8%</li>
+                <li>菜单批次与供餐批次完全匹配，无漏项</li>
+                <li>保留时长均满足 48 小时下限</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>未满足条件（2 项）</h4>
+              <ul>
+                <li style="color:var(--c-danger)">销毁照片缺失，7 份中仅 1 份有现场照片</li>
+                <li style="color:var(--c-danger)">监督人签字缺失，未完成双人确认</li>
+                <li style="color:var(--c-warn)">2 份留样入柜时间晚于出餐后 2 小时</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="explain" style="margin-top:12px">
+            <div class="box">
+              <h4>可改进项</h4>
+              <ul>
+                <li>补齐销毁现场照片（建议每份 1 张，含容器与秤重）</li>
+                <li>邀请监督人到场并在处置单签字确认</li>
+                <li>凉菜间出餐后 1 小时内完成留样入柜</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>人工修正记录</h4>
+              <ul>
+                <li>10-31 15:50 王建国 将等级由「中」调整为「良」</li>
+                <li style="color:var(--c-text-3)">原因：已补 3 张销毁照片，现场条件改善（原始计算结果未被覆盖）</li>
+                <li>10-30 09:12 王建国 采纳系统推荐，未调整</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="adjust">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+              <span style="font-size:12.5px;color:var(--c-text-2)">人工调整：</span>
+              <select class="sel" style="height:30px;min-width:140px"><option>良</option><option>优</option><option>中</option><option>差</option></select>
+              <input class="inp" placeholder="调整原因（不少于 5 个字）" style="height:30px;flex:1;min-width:220px">
+              <button class="btn btn-ghost btn-sm">保存调整</button>
+              <span class="muted" style="font-size:11.5px">原始计算与修正记录同时留存，互不覆盖</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 待销毁清单 -->
+    <div class="tbl-wrap">
+      <div class="tabs" style="padding:0 14px">
+        <a class="on">待销毁 <span class="cnt">7</span></a>
+        <a>已逾期 <span class="cnt">3</span></a>
+        <a>事件锁定 <span class="cnt">2</span></a>
+        <a>已销毁 <span class="cnt">3</span></a>
+      </div>
+      <table class="tbl">
+        <thead><tr><th>留样编号</th><th>食品名称</th><th>仓位</th><th class="r">重量</th><th>到期时间</th><th>逾期</th><th>锁定</th><th>处置凭证</th><th>操作</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="id nowrap">LY20261029-0014</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-3.svg" alt=""><div><b>糖醋里脊</b><span>二食堂热菜档</span></div></div></td>
+            <td class="muted">A-2-04</td><td class="r mono-num">141.2 g</td>
+            <td class="nowrap">10-31 12:11</td><td><span class="tag bad">1.5 天</span></td>
+            <td><span class="tag bad">事件锁定</span></td>
+            <td><span class="tag warn">缺照片</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm" disabled>销毁</button><button class="btn btn-text btn-sm">查看</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261028-0009</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-6.svg" alt=""><div><b>紫菜蛋花汤</b><span>二食堂汤品档</span></div></div></td>
+            <td class="muted">C-1-02</td><td class="r mono-num">268.0 g</td>
+            <td class="nowrap">10-30 12:02</td><td><span class="tag bad">1 天</span></td>
+            <td><span class="tag ok">未锁定</span></td>
+            <td><span class="tag ok">齐全</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">销毁</button><button class="btn btn-text btn-sm">查看</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261030-0003</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-5.svg" alt=""><div><b>凉拌黄瓜</b><span>凉菜间</span></div></div></td>
+            <td class="muted">A-2-03</td><td class="r mono-num">126.8 g</td>
+            <td class="nowrap">11-01 12:00</td><td><span class="tag plain">未逾期</span></td>
+            <td><span class="tag ok">未锁定</span></td>
+            <td><span class="tag warn">缺签字</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">销毁</button><button class="btn btn-text btn-sm">查看</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261030-0007</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-1.svg" alt=""><div><b>红烧狮子头</b><span>一食堂热菜档</span></div></div></td>
+            <td class="muted">A-3-07</td><td class="r mono-num">132.5 g</td>
+            <td class="nowrap">11-01 12:18</td><td><span class="tag plain">未逾期</span></td>
+            <td><span class="tag ok">未锁定</span></td>
+            <td><span class="tag ok">齐全</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">销毁</button><button class="btn btn-text btn-sm">查看</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pager"><span>共 7 条 · 每页 10 条</span><div class="pgs"><span class="pg on">1</span></div></div>
+    </div>
+
+    <!-- 销毁登记抽屉 -->
+    <div class="mask">
+      <div class="drawer" style="width:520px">
+        <div class="dh">销毁登记 <span class="x">×</span></div>
+        <div class="db">
+          <div class="summary">
+            <div class="s">留样编号<b class="mono-num">LY20261028-0009</b></div>
+            <div class="s">食品<b>紫菜蛋花汤</b></div>
+            <div class="s">到期时间<b>10-30 12:02</b></div>
+          </div>
+          <div class="form-row"><label><span class="req">*</span>销毁方式</label><div class="ctrl"><select class="sel" style="width:240px"><option>餐厨垃圾统一处理</option><option>高温灭菌后处理</option><option>专业机构回收</option></select></div></div>
+          <div class="form-row"><label><span class="req">*</span>销毁时间</label><div class="ctrl"><input class="inp" value="2026-10-31 16:10:00" style="width:240px"></div></div>
+          <div class="form-row"><label><span class="req">*</span>执行人</label><div class="ctrl"><input class="inp" value="李秀兰" style="width:240px"></div></div>
+          <div class="form-row"><label><span class="req">*</span>监督人</label><div class="ctrl"><input class="inp" placeholder="需与执行人不同" style="width:240px"></div><div class="hint">双人销毁：监督人必须是主管或另一名留样员，执行人与监督人不得为同一人</div></div>
+          <div class="form-row"><label><span class="req">*</span>销毁重量</label><div class="ctrl"><div style="display:flex;align-items:center;gap:8px"><input class="inp" value="268.0" style="width:160px"><span class="muted">g</span></div></div></div>
+          <div class="form-row"><label><span class="req">*</span>现场照片</label><div class="ctrl">
+            <div class="upload-box"><svg width="18" height="18"><use href="../icons.svg#i-upload"/></svg>上传销毁现场照片（至少 1 张）</div>
+          </div></div>
+          <div class="note" style="margin-top:8px">审批通过后，该留样的全部原始数据（重量、照片、检测记录）将被锁定，不可修改、不可删除。</div>
+        </div>
+        <div class="df"><button class="btn btn-ghost">取消</button><button class="btn btn-primary">提交审批</button></div>
+      </div>
+    </div>
+  </template>
+</div>
+</body>
+</html>

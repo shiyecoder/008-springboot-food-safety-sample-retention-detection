@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>登录 · 食品安全留样与检测管理系统</title>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+  .login-left .bg{width:100%;height:100%;background:
+     radial-gradient(900px 600px at 12% 18%, rgba(47,111,106,.55), transparent 62%),
+     radial-gradient(700px 520px at 82% 82%, rgba(122,57,71,.55), transparent 60%),
+     linear-gradient(155deg,#5B2533 0%,#471C28 62%,#2E1219 100%);}
+  .login-left .grain{position:absolute;inset:0;opacity:.5;background-image:radial-gradient(rgba(255,255,255,.09) .6px,transparent .6px);background-size:5px 5px}
+  .stats{display:flex;gap:34px;margin-top:34px;position:relative;z-index:2}
+  .stats b{display:block;font-size:24px;font-variant-numeric:tabular-nums;line-height:30px}
+  .stats span{font-size:11.5px;color:#C9A7B0}
+</style>
+</head>
+<body>
+<div class="login-wrap">
+  <!-- 左侧品牌区：绛红底 + 质感光晕，不用插画 -->
+  <div class="login-left">
+    <div class="bg"></div><div class="grain"></div>
+    <div class="inner">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:34px;position:relative;z-index:2">
+        <span style="width:36px;height:36px;border-radius:8px;background:#2F6F6A;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:15px">留</span>
+        <span style="font-size:14px;letter-spacing:.6px;color:#E9D3D9">SHIPIN LIUYANG · FOOD SAFETY</span>
+      </div>
+      <h1>食品安全留样<br>与检测管理系统</h1>
+      <div class="rule"></div>
+      <p class="sub">从批次建立、留样称重、复核入柜，到抽检登记、不合格处置与到期双人销毁，<br>全过程留痕，数据不可篡改。</p>
+      <ul>
+        <li>留样规则自动生成任务，重量与仓位双重校验</li>
+        <li>检测异常自动生成事件并锁定样品，禁止销毁</li>
+        <li>到期前预警、双人监督销毁、原始留样数据锁定</li>
+      </ul>
+      <div class="stats">
+        <div><b>48</b><span>今日应留样</span></div>
+        <div><b>46</b><span>已入柜</span></div>
+        <div><b>3</b><span>临期待处置</span></div>
+        <div><b>1</b><span>检测异常</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右侧表单 -->
+  <div class="login-right">
+    <form class="login-form" onsubmit="location.href='02-dashboard.html';return false">
+      <h2>账号登录</h2>
+      <p class="tip">请使用单位分配的账号登录，连续 5 次失败将锁定 10 分钟</p>
+
+      <div class="field">
+        <label>用户名</label>
+        <input class="inp" value="liuyang01" autocomplete="username">
+      </div>
+      <div class="field">
+        <label>密码</label>
+        <input class="inp" type="password" value="123456" autocomplete="current-password">
+      </div>
+      <div class="field" style="display:flex;gap:10px">
+        <div style="flex:1">
+          <label>验证码</label>
+          <input class="inp" placeholder="4 位数字" style="max-width:none">
+        </div>
+        <div style="width:96px;height:40px;margin-top:24px;border:1px solid var(--c-line);border-radius:6px;display:flex;align-items:center;justify-content:center;background:#FBF6F7;font-size:17px;letter-spacing:5px;color:var(--c-brand);font-weight:600">7 3 2 9</div>
+      </div>
+      <div class="row">
+        <label style="display:flex;align-items:center;gap:6px"><input type="checkbox" checked> 记住账号</label>
+        <a href="#" onclick="return false">忘记密码？联系管理员</a>
+      </div>
+      <button class="btn btn-primary" type="submit">登 录</button>
+
+      <div class="roles">
+        <div class="role-chip"><b>留样员</b>liuyang01 / 123456</div>
+        <div class="role-chip"><b>检测员</b>jiance01 / 123456</div>
+        <div class="role-chip"><b>食品安全主管</b>zhuguan01 / 123456</div>
+        <div class="role-chip"><b>系统管理员</b>admin / admin123</div>
+      </div>
+      <p class="login-foot">© 2026 后勤保障处 · 食品安全科　建议使用 Chrome 100+ 浏览器</p>
+    </form>
+  </div>
+</div>
+</body>
+</html>

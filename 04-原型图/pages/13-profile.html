@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>个人中心 · 食品安全留样与检测管理系统</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/shell.js" defer></script>
+<style>
+  .profile-grid{display:grid;grid-template-columns:280px 1fr;gap:16px;align-items:start}
+  .avatar-box{text-align:center;padding:22px 16px}
+  .avatar-box .big{width:92px;height:92px;border-radius:50%;margin:0 auto 12px;background:#2F6F6A;color:#fff;font-size:32px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .avatar-box .big img{width:100%;height:100%;object-fit:cover}
+  .k-v{display:flex;font-size:12.5px;padding:7px 0;border-bottom:1px dashed #F0E7E3}
+  .k-v:last-child{border-bottom:0}
+  .k-v span{color:var(--c-text-2);width:86px;flex:0 0 86px}
+</style>
+</head>
+<body>
+<div class="shell" data-shell="检测员" data-active="/profile">
+  <template data-body>
+    <div class="page-h">
+      <div><h1>个人中心</h1><p>修改资料、密码与头像 · 头像上传后立即同步到右上角</p></div>
+    </div>
+
+    <div class="profile-grid">
+      <div>
+        <div class="card avatar-box">
+          <div class="big" id="avatar">陈</div>
+          <div style="font-size:15px;font-weight:600">陈志远</div>
+          <div class="muted" style="font-size:12px;margin-bottom:14px">检测员 · 食品安全科</div>
+          <button class="btn btn-ghost" style="width:100%;justify-content:center">更换头像</button>
+          <div class="hint" style="text-align:left;margin-top:8px">支持 jpg/png，≤ 2 MB；上传后裁剪为 1:1 并保存到 uploads/avatar/</div>
+        </div>
+        <div class="card">
+          <div class="card-h"><h3>账号信息</h3></div>
+          <div class="k-v"><span>用户名</span><b class="mono-num">jiance01</b></div>
+          <div class="k-v"><span>角色</span><b>检测员</b></div>
+          <div class="k-v"><span>数据范围</span><b>本部门</b></div>
+          <div class="k-v"><span>最近登录</span><b>2026-10-31 08:12:30</b></div>
+          <div class="k-v"><span>登录 IP</span><b class="mono-num">10.12.33.108</b></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom:16px">
+          <div class="card-h"><h3>基本资料</h3><span class="more">保存修改</span></div>
+          <div class="form-row"><label>姓名</label><div class="ctrl"><input class="inp" value="陈志远"></div></div>
+          <div class="form-row"><label>手机号</label><div class="ctrl"><input class="inp" value="13700005512"></div></div>
+          <div class="form-row"><label>邮箱</label><div class="ctrl"><input class="inp" value="chenzhiyuan@canteen.edu.cn"></div></div>
+          <div class="form-row"><label>所属组织</label><div class="ctrl"><select class="sel" style="width:240px"><option>食品安全科</option><option>快检室</option></select><div class="hint">组织调整需由管理员在系统管理中操作，个人不可修改</div></div></div>
+          <div class="form-row"><label>备注</label><div class="ctrl"><input class="inp" style="width:100%;max-width:420px" value="负责食品抽检登记与检测结果录入"></div></div>
+        </div>
+
+        <div class="card" style="margin-bottom:16px">
+          <div class="card-h"><h3>修改密码</h3></div>
+          <div class="form-row"><label>当前密码</label><div class="ctrl"><input class="inp" type="password" value="123456"></div></div>
+          <div class="form-row"><label>新密码</label><div class="ctrl"><input class="inp" type="password" placeholder="8–20 位，含字母与数字"><div class="hint">密码使用 BCrypt 加密存储，接口与日志均不返回密码字段</div></div></div>
+          <div class="form-row"><label>确认新密码</label><div class="ctrl"><input class="inp" type="password"></div></div>
+          <div style="display:flex;justify-content:flex-end"><button class="btn btn-primary">确认修改</button></div>
+        </div>
+
+        <div class="card">
+          <div class="card-h"><h3>我的消息</h3><span class="more">全部已读</span></div>
+          <div class="tl">
+            <div class="it"><div class="t">检测任务提醒</div><div class="m">2026-10-31 11:52</div><div class="c">红烧狮子头（JC20261031-0005）待录入检测结果，请于今日 17:00 前完成</div></div>
+            <div class="it"><div class="t">结果待复核提醒</div><div class="m">2026-10-31 08:00</div><div class="c">清蒸鲈鱼检测结果已提交，等待主管复核</div></div>
+            <div class="it"><div class="t">抽检任务生成通知</div><div class="m">2026-10-31 06:30</div><div class="c">今日随机抽检 5 项已派发，请按计划完成</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+</body>
+</html>

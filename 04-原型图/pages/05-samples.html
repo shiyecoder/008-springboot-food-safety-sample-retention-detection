@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>留样台账 · 食品安全留样与检测管理系统</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/shell.js" defer></script>
+</head>
+<body>
+<div class="shell" data-shell="主管" data-active="/samples">
+  <template data-body>
+    <div class="page-h">
+      <div><h1>留样台账</h1><p>全部留样主档 · 共 46 条在管记录，含 3 条已销毁历史</p></div>
+      <div class="acts">
+        <button class="btn btn-ghost"><svg width="14" height="14"><use href="../icons.svg#i-export"/></svg>导出当前筛选</button>
+        <button class="btn btn-primary"><svg width="14" height="14"><use href="../icons.svg#i-plus"/></svg>新建留样</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="fi"><label>食品名称</label><input class="inp" placeholder="输入名称或编号"></div>
+      <div class="fi"><label>餐次</label><select class="sel"><option>全部</option><option>早餐</option><option>午餐</option><option>晚餐</option></select></div>
+      <div class="fi"><label>留样日期</label><input class="inp" value="2026-10-01 ~ 2026-10-31" style="min-width:200px"></div>
+      <div class="fi"><label>存放位置</label><select class="sel"><option>全部仓位</option><option>冷藏柜 A</option><option>冷藏柜 B</option><option>冷藏柜 C</option></select></div>
+      <div class="fi"><label>到期状态</label><select class="sel"><option>全部</option><option>未到期</option><option>临期 24h</option><option>已逾期</option></select></div>
+      <div class="fi"><label>检测结果</label><select class="sel"><option>全部</option><option>合格</option><option>不合格</option><option>待复检</option><option>未检测</option></select></div>
+      <div class="sp"><button class="btn btn-ghost">重置</button><button class="btn btn-primary">查询</button></div>
+    </div>
+
+    <div class="tbl-wrap">
+      <div class="tabs" style="padding:0 14px">
+        <a class="on">全部 <span class="cnt">46</span></a>
+        <a>待执行 <span class="cnt">12</span></a>
+        <a>待复核 <span class="cnt">8</span></a>
+        <a>保留中 <span class="cnt">22</span></a>
+        <a>待销毁 <span class="cnt">7</span></a>
+        <a>已销毁 <span class="cnt">3</span></a>
+        <a>已驳回 <span class="cnt">2</span></a>
+      </div>
+      <table class="tbl">
+        <thead><tr>
+          <th>留样编号</th><th>食品名称</th><th>餐次</th><th>生产批次</th>
+          <th class="r">实际重量</th><th>存放位置</th><th>留样时间</th><th>保留到期</th>
+          <th>检测结果</th><th>状态</th><th>操作</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="id nowrap">LY20261031-0001</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-2.svg" alt=""><div><b>清蒸鲈鱼</b><span>一食堂 · 热菜档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261031-L01</td>
+            <td class="r mono-num">138.0 g</td><td class="muted">冷藏柜 A · 3-01</td>
+            <td class="nowrap">10-31 12:05</td><td class="nowrap">11-02 12:05</td>
+            <td><span class="tag ok">合格</span></td><td><span class="tag doing">保留中</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">复核</button><button class="btn btn-text btn-sm">更多</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261031-0002</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-4.svg" alt=""><div><b>香菇滑鸡</b><span>二食堂 · 热菜档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261031-L01</td>
+            <td class="r mono-num">129.4 g</td><td class="muted">冷藏柜 A · 3-02</td>
+            <td class="nowrap">10-31 12:08</td><td class="nowrap">11-02 12:08</td>
+            <td><span class="tag plain">未检测</span></td><td><span class="tag doing">保留中</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">复核</button><button class="btn btn-text btn-sm">更多</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261031-0006</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-5.svg" alt=""><div><b>凉拌木耳</b><span>凉菜间</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261031-L02</td>
+            <td class="r mono-num" style="color:var(--c-danger)">108.0 g</td><td class="muted">冷藏柜 B · 1-03</td>
+            <td class="nowrap">10-31 11:52</td><td class="nowrap">—</td>
+            <td><span class="tag plain">未检测</span></td><td><span class="tag bad">已驳回</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">重新留样</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261029-0014</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-3.svg" alt=""><div><b>糖醋里脊</b><span>二食堂 · 热菜档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261029-L01</td>
+            <td class="r mono-num">141.2 g</td><td class="muted">冷藏柜 A · 2-04</td>
+            <td class="nowrap">10-29 12:11</td><td class="nowrap" style="color:var(--c-warn)">10-31 12:11</td>
+            <td><span class="tag bad">不合格</span></td><td><span class="tag bad">待销毁</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">处置</button><button class="btn btn-text btn-sm">更多</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261028-0009</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-6.svg" alt=""><div><b>紫菜蛋花汤</b><span>二食堂 · 汤品档</span></div></div></td>
+            <td>午餐</td><td class="muted">PC-20261028-L03</td>
+            <td class="r mono-num">268.0 g</td><td class="muted">冷藏柜 C · 1-02</td>
+            <td class="nowrap">10-28 12:02</td><td class="nowrap" style="color:var(--c-warn)">10-30 12:02</td>
+            <td><span class="tag ok">合格</span></td><td><span class="tag bad">待销毁</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">处置</button><button class="btn btn-text btn-sm">更多</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261027-0021</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-7.svg" alt=""><div><b>鲜肉包子</b><span>面点档</span></div></div></td>
+            <td>早餐</td><td class="muted">PC-20261027-B01</td>
+            <td class="r mono-num">112.6 g</td><td class="muted">冷藏柜 B · 2-01</td>
+            <td class="nowrap">10-27 07:18</td><td class="nowrap">10-29 07:18</td>
+            <td><span class="tag warn">待复检</span></td><td><span class="tag warn">待复核</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">复核</button><button class="btn btn-text btn-sm">更多</button></div></td>
+          </tr>
+          <tr>
+            <td class="id nowrap">LY20261024-0018</td>
+            <td><div class="food-cell"><img class="thumb" src="../assets/dish-8.svg" alt=""><div><b>小米粥</b><span>面点档</span></div></div></td>
+            <td>早餐</td><td class="muted">PC-20261024-B01</td>
+            <td class="r mono-num">255.0 g</td><td class="muted">冷藏柜 C · 2-03</td>
+            <td class="nowrap">10-24 07:05</td><td class="nowrap">10-26 07:05</td>
+            <td><span class="tag ok">合格</span></td><td><span class="tag plain">已销毁</span></td>
+            <td><div class="op"><button class="btn btn-text btn-sm">查看</button><button class="btn btn-text btn-sm">销毁记录</button></div></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pager">
+        <span>共 46 条 · 每页 10 条</span>
+        <div class="pgs"><span class="pg">‹</span><span class="pg on">1</span><span class="pg">2</span><span class="pg">3</span><span class="pg">4</span><span class="pg">5</span><span class="pg">›</span></div>
+      </div>
+    </div>
+
+    <!-- 复核抽屉（设计稿中直接展开，便于评审） -->
+    <div class="mask">
+      <div class="drawer">
+        <div class="dh">留样复核 <span class="x">×</span></div>
+        <div class="db">
+          <div class="summary">
+            <div class="s">留样编号<b class="mono-num">LY20261031-0002</b></div>
+            <div class="s">食品名称<b>香菇滑鸡</b></div>
+            <div class="s">当前状态<b><span class="tag warn">待复核</span></b></div>
+            <div class="s">责任人<b>李秀兰</b></div>
+            <div class="s">提交时间<b>10-31 12:08</b></div>
+          </div>
+
+          <div class="group-t">复核项</div>
+          <div class="form-row">
+            <label>重量复核</label>
+            <div class="ctrl">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span class="mono-num" style="font-size:15px;font-weight:600">129.4 g</span>
+                <span class="muted">/ 标准 ≥ 125 g</span>
+                <span class="tag ok">通过</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>容器密封</label>
+            <div class="ctrl"><label style="font-size:13px"><input type="checkbox" checked> 容器封口完好，无渗漏</label></div>
+          </div>
+          <div class="form-row">
+            <label>标识完整</label>
+            <div class="ctrl"><label style="font-size:13px"><input type="checkbox" checked> 标签含食品名称、批次、留样时间、留样人</label></div>
+          </div>
+          <div class="form-row">
+            <label>仓位核对</label>
+            <div class="ctrl">
+              <span class="mono-num">冷藏柜 A · 3 层 · 02 位</span>
+              <span class="tag ok" style="margin-left:8px">仓位空闲且已占用本样品</span>
+              <div class="hint">仓位被其他留样占用时，后端拒绝复核通过</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>现场照片</label>
+            <div class="ctrl">
+              <div style="display:flex;gap:8px">
+                <img src="../assets/dish-4.svg" style="width:120px;height:90px;object-fit:cover;border-radius:4px;border:1px solid var(--c-line)">
+                <img src="../assets/dish-2.svg" style="width:120px;height:90px;object-fit:cover;border-radius:4px;border:1px solid var(--c-line)">
+              </div>
+            </div>
+          </div>
+
+          <div class="group-t" style="margin-top:18px">处理意见</div>
+          <div class="form-row">
+            <label><span class="req">*</span>复核结论</label>
+            <div class="ctrl">
+              <label style="font-size:13px;margin-right:20px"><input type="radio" name="r" checked> 通过，转入保留中</label>
+              <label style="font-size:13px"><input type="radio" name="r"> 驳回，重新留样</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>意见说明</label>
+            <div class="ctrl">
+              <textarea class="inp" rows="3" style="height:auto;max-width:100%;padding:8px 10px">重量、密封、标识、仓位四项均符合要求，准予入柜保留。</textarea>
+              <div class="hint">驳回时必填，原因不少于 5 个字，将写入不可修改的操作时间轴</div>
+            </div>
+          </div>
+
+          <div class="group-t" style="margin-top:18px">操作时间轴</div>
+          <div class="tl">
+            <div class="it"><div class="t">提交复核</div><div class="m">2026-10-31 12:08:22 · 李秀兰</div><div class="c">留样称重 129.4 g，入柜 A-3-02，温度 3.6 ℃</div></div>
+            <div class="it"><div class="t">任务生成</div><div class="m">2026-10-31 06:30:00 · 系统（规则 v3）</div><div class="c">按午餐菜单与供餐批次自动生成，标准重量 125 g</div></div>
+            <div class="it todo"><div class="t">等待复核</div><div class="m">当前节点</div></div>
+          </div>
+        </div>
+        <div class="df">
+          <button class="btn btn-ghost">取消</button>
+          <button class="btn btn-danger">驳回</button>
+          <button class="btn btn-primary">确认通过</button>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+</body>
+</html>

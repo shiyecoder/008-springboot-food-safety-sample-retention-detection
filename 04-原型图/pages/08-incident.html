@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>不合格事件 · 食品安全留样与检测管理系统</title>
+<link rel="stylesheet" href="assets/app.css">
+<script src="assets/shell.js" defer></script>
+</head>
+<body>
+<div class="shell" data-shell="主管" data-active="/incident">
+  <template data-body>
+    <div class="page-h">
+      <div><h1>不合格事件</h1><p>检测不合格自动生成 · 未关闭事件 2 起，关闭前相关留样保持锁定</p></div>
+      <div class="acts">
+        <button class="btn btn-ghost">导出事件台账</button>
+        <button class="btn btn-primary">登记事件</button>
+      </div>
+    </div>
+
+    <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi bad"><div class="k">未关闭事件</div><div class="v">2<small>起</small></div><div class="d">最长已持续 2.5 天</div></div>
+      <div class="kpi warn"><div class="k">锁定留样</div><div class="v">5<small>份</small></div><div class="d">事件关闭前禁止销毁</div></div>
+      <div class="kpi teal"><div class="k">本月事件</div><div class="v">6<small>起</small></div><div class="d">较上月 <i>+2</i></div></div>
+      <div class="kpi ok"><div class="k">平均关闭时长</div><div class="v">1.8<small>天</small></div><div class="d">目标 ≤ 2 天</div></div>
+    </div>
+
+    <div class="grid3" style="grid-template-columns:1.5fr 1fr">
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>事件编号</th><th>关联留样</th><th>问题类型</th><th>严重程度</th><th>发生时间</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="id nowrap">INC20261031-003</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-5.svg" alt=""><div><b>凉拌木耳</b><span>LY20261031-0006</span></div></div></td>
+              <td>微生物超标</td><td><span class="tag bad">严重</span></td>
+              <td class="nowrap">10-31 13:45</td><td><span class="tag bad">处置中</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">详情</button><button class="btn btn-text btn-sm">关闭</button></div></td>
+            </tr>
+            <tr>
+              <td class="id nowrap">INC20261029-002</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-3.svg" alt=""><div><b>糖醋里脊</b><span>LY20261029-0014</span></div></div></td>
+              <td>添加剂超限</td><td><span class="tag bad">重大</span></td>
+              <td class="nowrap">10-29 16:20</td><td><span class="tag warn">待跟进结论</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">详情</button><button class="btn btn-text btn-sm">关闭</button></div></td>
+            </tr>
+            <tr>
+              <td class="id nowrap">INC20261018-001</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-7.svg" alt=""><div><b>鲜肉包子</b><span>LY20261018-0021</span></div></div></td>
+              <td>感官异常</td><td><span class="tag warn">一般</span></td>
+              <td class="nowrap">10-18 09:10</td><td><span class="tag ok">已关闭</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">详情</button></div></td>
+            </tr>
+            <tr>
+              <td class="id nowrap">INC20261007-001</td>
+              <td><div class="food-cell"><img class="thumb" src="../assets/dish-6.svg" alt=""><div><b>紫菜蛋花汤</b><span>LY20261007-0009</span></div></div></td>
+              <td>微生物超标</td><td><span class="tag bad">严重</span></td>
+              <td class="nowrap">10-07 14:05</td><td><span class="tag ok">已关闭</span></td>
+              <td><div class="op"><button class="btn btn-text btn-sm">详情</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pager"><span>共 6 条 · 每页 10 条</span><div class="pgs"><span class="pg on">1</span></div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-h"><h3>事件处置进度</h3><span class="more">INC20261031-003</span></div>
+        <div class="tl">
+          <div class="it"><div class="t">封存样品</div><div class="m">10-31 13:45 · 陈志远</div><div class="c">仓位 B-1-03 已锁定，样品封存</div></div>
+          <div class="it"><div class="t">停止供餐</div><div class="m">10-31 13:50 · 王建国</div><div class="c">凉菜间同批次 12 份全部撤柜停供</div></div>
+          <div class="it"><div class="t">排查同批次</div><div class="m">10-31 14:30 · 王建国</div><div class="c">追溯生产批次 PC-20261031-L02，涉及 3 个档口</div></div>
+          <div class="it todo"><div class="t">跟进结论</div><div class="m">待填写</div><div class="c">需填写原因分析与整改措施，不少于 5 个字</div></div>
+          <div class="it todo"><div class="t">关闭事件</div><div class="m">待处理</div></div>
+        </div>
+        <div class="note" style="margin-top:12px">事件关闭后，关联留样自动解锁并进入待销毁队列；未关闭时禁止销毁。</div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:12px">填写跟进结论</button>
+      </div>
+    </div>
+  </template>
+</div>
+</body>
+</html>

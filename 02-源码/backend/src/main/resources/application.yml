@@ -1,0 +1,51 @@
+server:
+  port: 8082
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: food-sample
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/new_008?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: "123456"
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 2
+  servlet:
+    multipart:
+      # 留样照片、检测报告、销毁凭证：单文件 20MB，单次请求 60MB
+      max-file-size: 20MB
+      max-request-size: 60MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+app:
+  # 文件统一落项目根目录 uploads/，静态映射见 WebConfig
+  upload-dir: ./uploads
+  jwt-secret: food-sample-graduation-project-2026-secret-key-please-change-me
+  jwt-expire-hours: 12
+  login-fail-limit: 5
+  login-lock-minutes: 10
+  # 到期扫描：每小时计算一次到期与逾期，生成提醒消息
+  expire-cron: "0 5 * * * ?"
+
+logging:
+  level:
+    com.grad.food: info
